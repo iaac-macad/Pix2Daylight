@@ -1,0 +1,9 @@
+pathlib
+matplotlib
+pillow
+natsort
+tqdm
+scikit-image
+scikit-learn
+tensorboard
+tensorflow
