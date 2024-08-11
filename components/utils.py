@@ -60,10 +60,10 @@ def normalize(input_image, real_image):
 
 @tf.function()
 def random_jitter(input_image, real_image, img_height, img_width):
-  # Resizing to 286x286
-  input_image, real_image = resize(input_image, real_image, 286, 286)
+  # Resizing to 572x572
+  input_image, real_image = resize(input_image, real_image, 572, 572)
 
-  # Random cropping back to 256x256
+  # Random cropping back to 512x512
   input_image, real_image = random_crop(input_image, real_image, img_height, img_width)
 
   if tf.random.uniform(()) > 0.5:
@@ -129,6 +129,7 @@ def generate_pred(model, test_input, save_dir):
         img.save(save_path)
 
         print(f"Prediction {i} saved to {save_path}")
+        
 def save_pred_images(i,model, test_input, output_folder):
     prediction = model(test_input, training=False)
     prediction = tf.squeeze(prediction, axis=0)

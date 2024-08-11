@@ -41,14 +41,14 @@ def main(TRAIN_NUMBER, BATCH_SIZE , LEARNING_RATE ,EPOCH , BETA_1  , ALPHA , BET
         tf.config.experimental.set_memory_growth(gpu, True)
     
 
-    #logger.info("Combining images for train number: %s", TRAIN_NUMBER)
-    #combine_image(TRAIN_NUMBER)
+    logger.info("Combining images for train number: %s", TRAIN_NUMBER)
+    combine_image(TRAIN_NUMBER)
 
-    #logger.info("Splitting dataset")
-    #split_dataset(source_dir=f"train{TRAIN_NUMBER}/dataset/combined_images", dest_dir=f"train{TRAIN_NUMBER}/dataset/train_test", train_ratio=0.9, seed=42)
+    logger.info("Splitting dataset")
+    split_dataset(source_dir=f"train{TRAIN_NUMBER}/dataset/combined_images", dest_dir=f"train{TRAIN_NUMBER}/dataset/train_test", train_ratio=0.9, seed=42)
 
-    #logger.info("Creating tar file of the dataset")
-    #make_tarfile(output_filename=f"train{TRAIN_NUMBER}/dataset/archive.tar.gz", source_dir=f"train{TRAIN_NUMBER}/dataset/train_test")
+    logger.info("Creating tar file of the dataset")
+    make_tarfile(output_filename=f"train{TRAIN_NUMBER}/dataset/archive.tar.gz", source_dir=f"train{TRAIN_NUMBER}/dataset/train_test")
 
     local_path = f"train{TRAIN_NUMBER}/dataset/archive.tar.gz"  
     path_to_zip = pathlib.Path(local_path)
@@ -66,11 +66,15 @@ def main(TRAIN_NUMBER, BATCH_SIZE , LEARNING_RATE ,EPOCH , BETA_1  , ALPHA , BET
     logger.info("Creating training dataset pipeline")
     ###################DATAPREP#####################
     train_dataset = tf.data.Dataset.list_files(f'{PATH}/train/*.png')
-    train_dataset = train_dataset.map(lambda x: load_image_train(x, 256, 256),
+    train_dataset = train_dataset.map(lambda x: load_image_train(x, 512, 512),
                                         num_parallel_calls=tf.data.AUTOTUNE)
 
-    test_dataset = tf.data.Dataset.list_files(f'{PATH}/test/*.png')
-    test_dataset = test_dataset.map(lambda x: load_image_test(x, img_height=256, img_width=256))
+    # test_dataset = tf.data.Dataset.list_files(f'{PATH}/test/*.png')
+    test_dataset_names = tf.data.Dataset.list_files(f'{PATH}/test/*.png')
+
+    # test_dataset = test_dataset.map(lambda x: load_image_test(x, img_height=512, img_width=512))
+    test_dataset = test_dataset_names.map(lambda x: load_image_test(x, img_height=512, img_width=512))
+
     test_dataset = test_dataset.batch(BATCH_SIZE)
     ###################DATAPREP#####################
 
