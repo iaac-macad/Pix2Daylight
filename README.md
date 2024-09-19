@@ -1,15 +1,5 @@
 <!-- Improved compatibility of back to top link: See: https://github.com/GITHUBNAME/PROJECTNAME/pull/73 -->
 <a name="readme-top"></a>
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -29,40 +19,6 @@
     <a href="https://github.com/GITHUBNAME/PROJECTNAME/issues">Request Feature</a>
   </p>
 </div>
-
-
-
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-      <li><a href="#intro">Intro</a></li>
-        <li><a href="#built-with">Built With</a></li>
-        <li><a href="#methodology">Methodology</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#usage">Usage</a></li>
-      </ul>
-    </li>
-    <li><a href="#challenges">Challenges</a></li>
-    <li><a href="#future-work">Future work</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#team">Team</a></li>
-    <ul>
-        <li><a href="#supervisors">Supervisors</a></li>
-      </ul>
-    <li><a href="#acknowledgements">More acknowledgements</a></li>
-  </ol>
-</details>
-
 
 
 <!-- ABOUT THE PROJECT -->
@@ -196,7 +152,7 @@ Hande Karataş - [@hande-karatas](https://github.com/hande-karatas) - [e-mail](m
             <img src="https://ca.slack-edge.com/T01A2NY1NUW-U05V5CA4TDF-a7f793381cab-512" height=200px>
         </a>
     </div>
-  <h3>Supervisors</h3>
+  <h3>Advisor</h3>
   <br />
     <div style="display:flex; flex-direction: row; flex:wrap; justify-content:space-around;">
         <a href="https://www.linkedin.com/in/angeloschronis/">
