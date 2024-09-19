@@ -87,7 +87,7 @@ To use the project follow these steps:
 
 ### Usage / Colab
 
-<a href="https://colab.research.google.com/drive/16uus1AyeYbzrpPk48UP5zc9no08RVxnj?usp=sharing" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>\
+<a href="https://colab.research.google.com/drive/16uus1AyeYbzrpPk48UP5zc9no08RVxnj?usp=sharing" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
 
 * Step 1: go to datapreprocessing/image_encoding.py. You can input any room geometry with the required data in the file.
 * Step 2: after cloning the repo, open in VS Code.
