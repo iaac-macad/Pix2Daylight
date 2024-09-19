@@ -41,14 +41,14 @@ def main(TRAIN_NUMBER, BATCH_SIZE , LEARNING_RATE ,EPOCH , BETA_1  , ALPHA , BET
         tf.config.experimental.set_memory_growth(gpu, True)
     
 
-    # logger.info("Combining images for train number: %s", TRAIN_NUMBER)
-    # combine_image(TRAIN_NUMBER)
+    logger.info("Combining images for train number: %s", TRAIN_NUMBER)
+    combine_image(TRAIN_NUMBER)
 
-    # logger.info("Splitting dataset")
-    # split_dataset(source_dir=f"train{TRAIN_NUMBER}/dataset/combined_images", dest_dir=f"train{TRAIN_NUMBER}/dataset/train_test", train_ratio=0.9, seed=42)
+    logger.info("Splitting dataset")
+    split_dataset(source_dir=f"train{TRAIN_NUMBER}/dataset/combined_images", dest_dir=f"train{TRAIN_NUMBER}/dataset/train_test", train_ratio=0.9, seed=42)
 
-    # logger.info("Creating tar file of the dataset")
-    # make_tarfile(output_filename=f"train{TRAIN_NUMBER}/dataset/archive.tar.gz", source_dir=f"train{TRAIN_NUMBER}/dataset/train_test")
+    logger.info("Creating tar file of the dataset")
+    make_tarfile(output_filename=f"train{TRAIN_NUMBER}/dataset/archive.tar.gz", source_dir=f"train{TRAIN_NUMBER}/dataset/train_test")
 
     local_path = f"train{TRAIN_NUMBER}/dataset/archive.tar.gz"  
     path_to_zip = pathlib.Path(local_path)
@@ -69,12 +69,8 @@ def main(TRAIN_NUMBER, BATCH_SIZE , LEARNING_RATE ,EPOCH , BETA_1  , ALPHA , BET
     train_dataset = train_dataset.map(lambda x: load_image_train(x, 512, 512),
                                         num_parallel_calls=tf.data.AUTOTUNE)
 
-    test_dataset = tf.data.Dataset.list_files(f'{PATH}/test/*.png')
-    # test_dataset_names = tf.data.Dataset.list_files(f'{PATH}/test/*.png')
-
+    test_dataset = tf.data.Dataset.list_files(f'{PATH}/test/*.png') 
     test_dataset = test_dataset.map(lambda x: load_image_test(x, img_height=512, img_width=512))
-    # test_dataset = test_dataset_names.map(lambda x: load_image_test(x, img_height=512, img_width=512))
-
     test_dataset = test_dataset.batch(BATCH_SIZE)
     ###################DATAPREP#####################
 
@@ -126,7 +122,7 @@ def main(TRAIN_NUMBER, BATCH_SIZE , LEARNING_RATE ,EPOCH , BETA_1  , ALPHA , BET
         scheduler = scheduler)
     
     logger.info("Saving the generator model")
-    generator.save(f"train{TRAIN_NUMBER}/{folder_name}/models/generator_model")
+    generator.save(f"train{TRAIN_NUMBER}/{folder_name}/models/generator_model.keras")
     parameters = {
         "TRAIN_NUMBER": TRAIN_NUMBER,
         "BATCH_SIZE": BATCH_SIZE,
@@ -151,7 +147,7 @@ def main(TRAIN_NUMBER, BATCH_SIZE , LEARNING_RATE ,EPOCH , BETA_1  , ALPHA , BET
     logger.info("Restoring the latest checkpoint")
     logger.info("loading saved model")
     logger.info("predicting and saving images")
-    loaded_generator = tf.keras.models.load_model(f"train{TRAIN_NUMBER}/{folder_name}/models/generator_model")
+    loaded_generator = tf.keras.models.load_model(f"train{TRAIN_NUMBER}/{folder_name}/models/generator_model.keras")
     for i, (img, tar) in enumerate(test_dataset.take(len(test_dataset))):
     # Check the batch size
         batch_size = img.shape[0]
