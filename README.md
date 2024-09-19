@@ -113,17 +113,18 @@ Our project aims to revolutionize daylight prediction in architectural design by
 <!-- GETTING STARTED -->
 ## Getting Started
 
-<a href="https://colab.research.google.com/drive/16uus1AyeYbzrpPk48UP5zc9no08RVxnj?usp=sharing" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>\
-alternatively clone the repo:
+
+alternatively 
+
+### Usage / Local
+
+clone the repo:
 ```
 https://github.com/iaac-macad/Pix2Daylight.git
 ```
 
-
-### Usage / Local
-
 To use the project follow these steps:
-(assuming you have created an environment where you installed the requirements.txt on your computer)
+(after creating an environment where you install the requirements.txt on your computer)
 
 * Step 1: go to datapreprocessing/image_encoding.py. You can input any room geometry with the reqired data in the file.
 * Step 2: after cloning the repo, open in VS Code.
@@ -134,8 +135,7 @@ To use the project follow these steps:
 
 ### Usage / Colab
 
-To use the project follow these steps:
-(assuming you have created an environment where you installed the requirements.txt on your computer)
+<a href="https://colab.research.google.com/drive/16uus1AyeYbzrpPk48UP5zc9no08RVxnj?usp=sharing" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>\
 
 * Step 1: go to datapreprocessing/image_encoding.py. You can input any room geometry with the required data in the file.
 * Step 2: after cloning the repo, open in VS Code.
@@ -143,7 +143,7 @@ To use the project follow these steps:
 * Step 4: go to image_combining_tarfile.ipynb in the cloned repo, and run it with the training number you have set.
 * Step 5: in the folder of your new train number, there is an archive.tar.gz file created. First, copy the folder in the link above to your drive, and create a new folder with your train number. Then, create a folder named "dataset", and copy the archive.tar.gz file in this directory in your drive. after mounting your drive, open "train_save_test_model.py" in drive and change the hyperparameters, as well as the train number.
 * Step 6: next you can run the whole script for training.
-* Step 7: for visualization of the loss graphs, 
+* Step 7: for visualization of the loss graphs, you can download the v2 file of your training from logs/fit, and copy it to your local repository.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -151,7 +151,7 @@ To use the project follow these steps:
 
 While working on the project the following challenges were encountered:
 
-* Running on CPU: the CPU was not enough to deal with the dataset. Running locally on GPU was not an option since not all users have newer GPUs. Therefore, we suggest using Google Colab Pro.
+* excessive system and GPU RAM consumption: Most local GPUs are insufficient for the training. The code needs improvement to avoid this. Therefore, we suggest using Google Colab Pro for now.
 * Model Deployment on the server: Since we could not achieve it using Google Cloud, we deploy our model locally while running our app.
  
 
@@ -160,7 +160,6 @@ While working on the project the following challenges were encountered:
 ## Future work
 
 - [ ] We learned too late that Google Cloud Functions focus on CPUs. Our GPU-accelerated model would benefit from a service like Vertex AI. We can simplify our user interface by deploying the model and sending direct web requests.
-- [ ] For our validation, we added up the analyses of all the windows in a room. But for the User Interface, we only show one analysis per room, per window. This is a further development that the app could benefit from. 
 - [ ] For our user interface, we have used only native components in our Grasshopper scripts. Porting them to Python and uploading them to a Github repo would make it possible to offer them as a pyRevit Extension.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -176,13 +175,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Alejandro Pacheco - [@APachecoD](https://github.com/APachecoD) - [e-mail](mailto:alejandro.pacheco.dieguez@students.iaac.net) - [LinkedIn][linkedin-url-ale]
-
 Dawid Drożdż - [@daviddrozdz](https://github.com/daviddrozdz) - [e-mail](mailto:dawid.drozdz@students.iaac.net) - [LinkedIn][linkedin-url-dawid]
 
 Hande Karataş - [@hande-karatas](https://github.com/hande-karatas) - [e-mail](mailto:hande.fatma.karatas@students.iaac.net) - [LinkedIn][linkedin-url-hande]
-
-Libny  Pacheco - [@libnypachecoiaac](https://github.com/libnypachecoiaac) - [e-mail](mailto:libny.francisco.pacheco@students.iaac.net) - [LinkedIn][linkedin-url-libny]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -197,14 +192,8 @@ Libny  Pacheco - [@libnypachecoiaac](https://github.com/libnypachecoiaac) - [e-m
         <a href="https://www.linkedin.com/in/handekaratas/">
             <img src="https://ca.slack-edge.com/T01A2NY1NUW-U05UL472D9U-a74d3f4a638c-512" height=200px>
         </a>
-      <a href="https://www.linkedin.com/in/alejandro-pacheco-di%C3%A9guez-06b1b238">
-            <img src="https://ca.slack-edge.com/T01A2NY1NUW-U06RELJFKB6-f2d0c03eb75e-512" height=200px>
-        </a>
       <a href="https://www.linkedin.com/in/david-drozdz/">
             <img src="https://ca.slack-edge.com/T01A2NY1NUW-U05V5CA4TDF-a7f793381cab-512" height=200px>
-        </a>
-       <a href="https://www.linkedin.com/in/libny-pacheco-6548b95/">
-            <img src="https://media.licdn.com/dms/image/C4D03AQFpoVcprFHezQ/profile-displayphoto-shrink_800_800/0/1609896701845?e=1720656000&v=beta&t=uJ9XPayKRsTpCZ9CyToOKIl2zPC3bc2PLw_HI5bkJ74" height=200px>
         </a>
     </div>
   <h3>Supervisors</h3>
@@ -213,13 +202,7 @@ Libny  Pacheco - [@libnypachecoiaac](https://github.com/libnypachecoiaac) - [e-m
         <a href="https://www.linkedin.com/in/angeloschronis/">
           <img src="https://i1.rgstatic.net/ii/profile.image/804508145823746-1568821097827_Q512/Angelos-Chronis.jpg" style="filter: grayscale(100%);" alt="Angelos Chronis" height=200px style="filter: grayscale(100%);">
         </a>
-        <a href="https://www.linkedin.com/in/serjoscha-d%C3%BCring-920644173/">
-          <img src="https://www.iaacblog.com/wp-content/uploads/2019/10/5-2-730x730.jpg" alt="Serjoscha Düring" height=200px style="filter: grayscale(100%);">
-        </a>
-        <a href="https://www.linkedin.com/in/stanislava-fedorova/">
-          <img src="https://static.wixstatic.com/media/4d56b6_5a0f0efb68334af6b44ac780b9b62a7a~mv2.jpg/v1/crop/x_350,y_0,w_1000,h_700/fill/w_540,h_540,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/2022_09_22_The_Labratory_Portraits_0801_light.jpg" alt="Stasja Fedorova" height=200px style="filter: grayscale(100%);">
-        </a>
-    </div>
+                 </div>
 </div>
 
 ## Acknowledgements
