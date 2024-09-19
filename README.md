@@ -120,27 +120,30 @@ https://github.com/iaac-macad/Pix2Daylight.git
 ```
 
 
-### Usage
+### Usage / Local
 
 To use the project follow these steps:
 (assuming you have created an environment where you installed the requirements.txt on your computer)
 
-* Step 1: (if you have your own dataset) Create input and groundtruth images of 256x256. Place them in trainxx (where xx is any strings you'd like), in dataset/input and dataset/groundtruth. Make sure the corresponding images have the same names. Using image_combining.ipynb, enter the train number and combine the images (png) locally on your computer.
-* Step 1: (if you want to use our existing dataset) train10/dataset/archive.tar.gz is the combined and split verison of our dataset. If you want to use it, you can just proceed to the next step.
-* Step 2: upload components folder, requirements.txt and train_save_test_model.ipynb in your google drive, all in the same folder.
-* Step 3: upload the run_colab.ipynb file to your drive. you can run the script. The default hyperparameters are:
-  {
-    "TRAIN_NUMBER": "10",
-    "BATCH_SIZE": 16,
-    "EPOCH": 45,
-    "LEARNING_RATE": 0.0002,
-    "DISCRIMINATOR ": "v1",
-    "GENERATOR": "v1"
-}
-but feel free to change and experience.
+* Step 1: go to datapreprocessing/image_encoding.py. You can input any room geometry with the reqired data in the file.
+* Step 2: after cloning the repo, open in VS Code.
+* Step 3: based on which encoding method you would like to proceed with, go to encoding1.ipynb or encoding2.ipynb in "datapreprocessing" folder. Set the train number, and run the script.
+* Step 4: open train_save_test_model.py and set the hyperparameters you would like to train with.
+* Step 5: in the terminal, type "python .\train_save_test_model.py".
+* Step 6: after the training is complete, check the folder with your train number for the model, predictions and metrics. If you would like to visualize the loss graph, go to tensorboard_vis.ipynb and visualize the graphs for generator, discriminator and total.
 
-* Step 4: the generator model, predicted images and metrics are saved under the folder "trainxx" in your drive (the folder where you placed the files). If you would like to visualize the loss graph, you can go to the logs/fit folder that is created again in your parent folder, and download the event file belonging to that training. After you place the downloaded event file in your computer, where you cloned the repo, you can go to tensorboard_vis.ipynb and visualize thre graphs for generator, discriminator and total. 
+### Usage / Colab
 
+To use the project follow these steps:
+(assuming you have created an environment where you installed the requirements.txt on your computer)
+
+* Step 1: go to datapreprocessing/image_encoding.py. You can input any room geometry with the required data in the file.
+* Step 2: after cloning the repo, open in VS Code.
+* Step 3: based on which encoding method you would like to proceed with, go to encoding1.ipynb or encoding2.ipynb in "datapreprocessing" folder. Set the train number, and run the script.
+* Step 4: go to image_combining_tarfile.ipynb in the cloned repo, and run it with the training number you have set.
+* Step 5: in the folder of your new train number, there is an archive.tar.gz file created. First, copy the folder in the link above to your drive, and create a new folder with your train number. Then, create a folder named "dataset", and copy the archive.tar.gz file in this directory in your drive. after mounting your drive, open "train_save_test_model.py" in drive and change the hyperparameters, as well as the train number.
+* Step 6: next you can run the whole script for training.
+* Step 7: for visualization of the loss graphs, 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
