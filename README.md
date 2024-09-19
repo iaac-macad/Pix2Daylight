@@ -61,10 +61,6 @@ Our project aims to revolutionize daylight prediction in architectural design by
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-### Methodology
-
-![Methodology](assets/methodology.png)
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
