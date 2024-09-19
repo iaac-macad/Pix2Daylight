@@ -2,7 +2,7 @@ from components.main import main
 
 # Define the specific combinations you want
 specific_combinations = [
-    {"BATCH_SIZE": 1, "LEARNING_RATE": 2e-4, "TRAIN_NUMBER": "04"},
+    {"BATCH_SIZE": 1, "LEARNING_RATE": 2e-4, "TRAIN_NUMBER": "01"},
 ]
 
 # Call main with the specific combinations

@@ -113,7 +113,7 @@ def fit(train_ds,
     logging.info(f'Model saved to {path_to_save}')
     # Save the final model
     os.makedirs(path_to_save, exist_ok=True)
-    generator.save(os.path.join(path_to_save, 'generator_model'))
+    generator.save(os.path.join(path_to_save, 'generator_model.keras'))
     print("Final models saved successfully")
 
 @tf.function

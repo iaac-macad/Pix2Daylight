@@ -6,5 +6,6 @@ natsort
 tqdm
 scikit-image
 scikit-learn
+shutil
 tensorboard
 tensorflow
